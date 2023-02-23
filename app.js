@@ -9,6 +9,9 @@ var thankyouRouter = require('./routes/thankyou');
 
 var app = express();
 
+const host = process.env.IP  || '0.0.0.0';
+const port = process.env.PORT || 8088;
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -39,3 +42,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(port, host);
+console.log('Concession Kiosk Frontend started on: ' + host + ':' + port);
